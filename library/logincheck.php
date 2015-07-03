@@ -9,7 +9,8 @@ class logincheck extends webconfig {
         $sql="SELECT au.username,au.PASSWORD,au.fullname,sd.value
               FROM RM_ApplicationUsers au INNER JOIN RM_StaticDataValue sd ON au.valueId=sd.rowId
               WHERE BINARY au.username=BINARY '$user'
-              AND BINARY au.password=BINARY'$pass'";
+              AND BINARY au.password=BINARY'$pass'
+              AND isActive='Y'";
         $res= $this->mysqli->query($sql);
         $data=$res->fetch_array(MYSQLI_ASSOC);
 
@@ -30,7 +31,7 @@ class logincheck extends webconfig {
         else
         {
             $_SESSION['loginstatus']="false";
-            $_SESSION['message']="Ooops!! Missed Some Thing Please Check Your Credentials";
+            $_SESSION['message']="Oops!! Please Check Your Credentials!";
             header('location:index.php');
         }
     }

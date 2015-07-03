@@ -49,7 +49,7 @@
 </div>
 
 <div class="col-md-3 dashboard-menu-container">
-    <a href="#">
+    <a href="usermanagement.php">
         <div class="dashboard-menu">
             <img src="<?php echo $baseurl; ?>images/usermgmt.png" class="img-responsive">
             <br>

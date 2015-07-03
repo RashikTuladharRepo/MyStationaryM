@@ -42,7 +42,7 @@
 
                         <div id="error-block" class="input-group-addon"><i class="fa fa-times"></i></div>
 
-                        <input type="text" class="form-control" placeholder="<?php echo $_SESSION['message']; ?>">
+                        <input type="text" class="form-control" disabled placeholder="<?php echo $_SESSION['message']; ?>">
 
                     </div>
                 </div>
@@ -57,7 +57,7 @@
 
                     <div class="input-group-addon"><i class="fa fa-user"></i></div>
 
-                    <input type="text" class="form-control" name="username" placeholder="Enter Your Username">
+                    <input type="text" class="form-control" name="username" placeholder="Enter Your Username" required>
 
                 </div>
 
@@ -67,7 +67,7 @@
 
                     <div class="input-group-addon"><i class="fa fa-key"></i></div>
 
-                    <input type="password" class="form-control" name="password" placeholder="Enter Your Password">
+                    <input type="password" class="form-control" name="password" placeholder="Enter Your Password" required>
 
                 </div>
 
@@ -76,8 +76,7 @@
                 <div class="input-group pull-left">
 
                     <button type="submit" name="submit" class="btn btn-md btn-success btn-block" value="Login"><i
-                            class="fa
-                    fa-thumbs-o-up"></i> Login</button>
+                            class="fa fa-thumbs-o-up"></i> Login</button>
 
                 </div>
 

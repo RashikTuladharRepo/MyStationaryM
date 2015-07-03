@@ -42,6 +42,18 @@ class getstatic
         }
     }
 
+
+    function checkusertype()
+    {
+        if($_SESSION['usertype']!="admin")
+        {
+            @session_destroy();
+            @session_start();
+            $_SESSION['message']="You Are Not Authorized For The Page!!";
+            header('location:'.$this->base_url().'index.php');
+        }
+    }
+
     function logout()
     {
         @session_destroy();
