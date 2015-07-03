@@ -5,7 +5,7 @@ class getstatic
 {
     function base_url()
     {
-        $url="http://localhost/sms/";
+        $url="http://localhost/stationary/";
         return $url;
     }
 
@@ -34,10 +34,11 @@ class getstatic
 
     function checksession()
     {
-        if(isset($_SESSION['loginstatus'])!="true" || $_SESSION['loginstatus']=="" || $_SESSION['logindate']=="" || $_SESSION['message']=="" || $_SESSION['username']=="")
+        if(isset($_SESSION['loginstatus'])!="true" || $_SESSION['usertype']=="" || $_SESSION['message']=="" ||
+            $_SESSION['username']=="")
         {
             $_SESSION['message']="Please Login First";
-            header('location:'.$this->home_base_url().'index.php');
+            header('location:'.$this->base_url().'index.php');
         }
     }
 
@@ -46,7 +47,7 @@ class getstatic
         @session_destroy();
         @session_start();
         $_SESSION['message']="Bye! For Now Will See You Soon";
-        header('location:'.$this->home_base_url().'index.php');
+        header('location:'.$this->base_url().'index.php');
     }
 
 

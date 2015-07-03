@@ -1,10 +1,12 @@
 <?php
     @session_start();
+
     include "library/getstatic.php";
     $gs=new getstatic();
+    $gs->checksession();
     $baseurl=$gs->base_url();
-    $_SESSION['usertype']="admin";
     $usertype=$_SESSION['usertype'];
+    $username=$_SESSION['username'];
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -46,7 +48,7 @@
 
 <!--Dashboard Navigation-->
                 <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-                    <h1 class="page-header">Welcome To The Stationary Management System</h1>
+                    <h1 class="page-header">Multi Traders Pvt. Ltd</h1>
                         <div class="row">
                             <?php if($usertype=="admin"){?>
                                 <?php include "includes/dashboardnav.php" ?>
