@@ -32,7 +32,6 @@
     color:#00FF00;
 }
 
-
 /*
     Font Faces
 */
@@ -378,6 +377,11 @@
 {
     width: 350px;
     display: none;
+}
+
+.edit-user-form
+{
+    width: 350px;
 }
 
 .grid table

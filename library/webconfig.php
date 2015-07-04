@@ -7,7 +7,7 @@ class webconfig extends getstatic {
     private $db = "RM_Stationary";
     private $user = "root";
     private $pass = "";
-    protected $mysqli;
+    public $mysqli;
     function __construct()
     {
         $this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->db);

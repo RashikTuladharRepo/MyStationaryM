@@ -1,6 +1,5 @@
 <?php
 require_once "webconfig.php";
-
 class logincheck extends webconfig {
     function login()
     {
@@ -13,14 +12,12 @@ class logincheck extends webconfig {
               AND isActive='Y'";
         $res= $this->mysqli->query($sql);
         $data=$res->fetch_array(MYSQLI_ASSOC);
-
         if ($res->num_rows>0)
         {
             $_SESSION['loginstatus']="true";
             $_SESSION['username']=$data['fullname'];
             $_SESSION['message']="Login Successfull!!";
             $_SESSION['usertype']=$data['value'];
-
 //            date_default_timezone_set("Asia/Kathmandu");
 //            $currentuser=$_SESSION['username'];
 //            $datetime=date("Y-m-d H:i:s");
