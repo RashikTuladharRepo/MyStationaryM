@@ -1,5 +1,5 @@
 <div class="col-md-3 dashboard-menu-container">
-    <a href="#">
+    <a href="addstock.php">
         <div class="dashboard-menu">
             <img src="<?php echo $baseurl; ?>images/addstock.png" class="img-responsive">
             <br>

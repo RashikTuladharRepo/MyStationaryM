@@ -129,4 +129,65 @@ class systemcontroller extends webconfig {
             header('location:'.$this->base_url().'usermanagement.php');
         }
     }
+
+
+
+
+
+
+    //Add Stock/ Product
+
+
+    //Get Vendor Lists
+    function get_vendor_lists()
+    {
+        $data=array();
+        $sql="select * from rm_vendormaster";
+        $qry=$this->mysqli->query($sql);
+        while ($res = $qry->fetch_array(MYSQLI_ASSOC)) {
+            $data[]= $res;
+        }
+        return $data;
+    }
+
+
+    //Get Product Details
+    function get_product_lists()
+    {
+        $data=array();
+        $sql="select * from rm_product";
+        $qry=$this->mysqli->query($sql);
+        while ($res = $qry->fetch_array(MYSQLI_ASSOC)) {
+            $data[]= $res;
+        }
+        return $data;
+    }
+
+    //Add Stock
+    function  add_stock()
+    {
+        $productcode=$_POST['productcode'];
+        $vendor=$_POST['vendor'];
+        $rate=$_POST['rate'];
+        $quantity=$_POST['quantity'];
+        $amount=$rate*$quantity;
+        $remarks=$_POST['remarks'];
+        $username=$_SESSION['username'];
+
+        $sql="insert into rm_purchase (productCode,quantity,rate,amount,vendorId,remarks,createdDate,createdBy)
+              values ('$productcode','$quantity','$rate','$amount','$vendor','$remarks',now(),'$username')";
+        $qry=$this->mysqli->query($sql);
+        if ($qry)
+        {
+                $_SESSION['error_code'] = "0";
+                $_SESSION['sys_message'] = "Success: Stock Product Added Successfully!";
+                header('location:' . $this->base_url() . 'addstock.php');
+        }
+        else
+        {
+            $_SESSION['error_code'] = "1";
+            $_SESSION['sys_message'] = "Error: Stock Product Could Not Be Added!";
+            header('location:' . $this->base_url() . 'addstock.php');
+        }
+    }
 }
